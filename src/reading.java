@@ -13,7 +13,8 @@ public class reading {
 
 
     public void write(String toWrite){
-        try(FileWriter fw = new FileWriter(home, true);
+        try(
+            FileWriter fw = new FileWriter(home, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
