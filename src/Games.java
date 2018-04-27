@@ -28,4 +28,8 @@ public class Games extends StoreInventory {
     public int getStock(){
         return stock;
     }
+
+    public String getAll() {
+        return (title + " " + price + " " + genra + " " + stock);
+    }
 }

@@ -7,7 +7,7 @@ import java.util.*;
 public class main {
     public static void main(String args[]) {
         Games gameList[] = new Games[200];
-
+        reading r = new reading();
         Scanner nav = new Scanner(System.in);
         System.out.println("Press 1 to enter a new game and 2 to view existing games:");
         int myInt = nav.nextInt();
@@ -18,12 +18,29 @@ public class main {
             String gTitle = gInfo.nextLine();
             System.out.println("Enter Price:");
             double gPrice = gInfo.nextDouble();
-            System.out.println("Enter Genre:");
-            String gGenre = gInfo2.nextLine();
+            System.out.println("Enter Genre: Press 1 for strategy, 2 for action, 3 for FPS, and 4 for RPG");
+            int gGenre = gInfo2.nextInt();
+            String oGenre;
+            if (gGenre == 1){
+                oGenre = "strategy";
+            }
+            else if(gGenre == 2){
+                oGenre = "action";
+            }
+            else if(gGenre == 3){
+                oGenre = "FPS";
+            }
+            else if(gGenre == 4){
+                oGenre = "RPG";
+            }
+            else{
+                oGenre = "Not Specified";
+            }
             System.out.println("Enter Stock:");
             int gStock = gInfo.nextInt();
-            StoreInventory games = new Games(gTitle, gPrice, gGenre, gStock);
-            System.out.println(games.title);
+            Games games = new Games(gTitle, gPrice, oGenre, gStock);
+            System.out.println(games.getAll());
+            r.write(games.getAll());
         }
 
 
